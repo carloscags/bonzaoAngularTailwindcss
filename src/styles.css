@@ -2,5 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .btn-menu {
+    @apply text-lg bg-transparent hover:bg-red-600 text-black hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded
+  }
+  .icons{
+  @apply hover:bg-red-600 pb-7 h-2
+}
+}
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
