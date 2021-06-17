@@ -1,0 +1,37 @@
+<mat-card>
+  <mat-card-title>Cadastrar Novo Produto</mat-card-title>
+  <form>
+      <mat-form-field>
+          <input
+              matInput
+              placeholder="Nome"
+              [(ngModel)]="product.name"
+              name= "name"
+              >
+      </mat-form-field>
+      <mat-form-field>
+          <input
+              matInput
+              placeholder="Preço"
+              [(ngModel)]="product.price"
+              name = "price"
+              type="number"
+          >
+      </mat-form-field>
+      <mat-form-field>
+        <input
+            matInput
+            placeholder="Descrição"
+            [(ngModel)]="product.description"
+            name = "price"
+            type="text"
+        >
+    </mat-form-field>
+  </form>
+  <button class="button-save" mat-raised-button (click)="createProduct()" color="primary">
+      SALVAR
+  </button>
+  <button class="button-cancel" mat-raised-button (click)="cancel()">
+      CANCELAR
+  </button>
+</mat-card>
