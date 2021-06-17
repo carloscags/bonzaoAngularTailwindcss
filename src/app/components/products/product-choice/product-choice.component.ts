@@ -20,6 +20,6 @@ export class ProductChoiceComponent implements OnInit {
   }
 
   navDeleteProduct(): void {
-    this.router.navigate(['/deleta-produtos']);
+    this.router.navigate(['/produtos/deletar-produtos/:id']);
   }
 }
