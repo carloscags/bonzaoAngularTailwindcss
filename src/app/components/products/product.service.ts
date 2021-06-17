@@ -33,6 +33,29 @@ export class ProductService {
     );
   }
 
+  readById(id: number): Observable<Product>{
+    const url = `${this.baseUrl}/${id}`;
+    return this.http.get<Product>(url).pipe(
+      map((obj) => obj),
+      catchError(e => this.errorHandler(e))
+    );
+  }
+
+  create(product: Product): Observable<Product> {
+    return this.http.post<Product>(this.baseUrl, product).pipe(
+      map((obj) => obj),
+      catchError(e => this.errorHandler(e))
+    );
+  }
+
+  delete(id: number): Observable<Product>{
+    const url = `${this.baseUrl}/${id}`;
+    return this.http.delete<Product>(url).pipe(
+      map((obj) => obj),
+      catchError(e => this.errorHandler(e))
+    );
+  }
+
 
   errorHandler(e: any): Observable<any> {
     this.showMessage('Ocorreu um error!');
