@@ -18,6 +18,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 // imports components
 import { HeaderComponent } from './components/header/header.component';
@@ -29,6 +30,7 @@ import { SocialNetworkComponent } from './components/social-network/social-netwo
 import { ProductsCreateComponent } from './components/products/product-choice/products-create/products-create.component';
 import { ProductChoiceComponent } from './components/products/product-choice/product-choice.component';
 import { ProductsDeleteComponent } from './components/products/product-choice/products-delete/products-delete.component';
+import { ProductCrudDeleteComponent } from './components/products/product-choice/products-delete/product-crud-delete/product-crud-delete.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +45,7 @@ import { ProductsDeleteComponent } from './components/products/product-choice/pr
     HeaderComponent,
     ProductChoiceComponent,
     ProductsDeleteComponent,
+    ProductCrudDeleteComponent
   ],
   imports: [
     BrowserModule,
@@ -59,6 +62,7 @@ import { ProductsDeleteComponent } from './components/products/product-choice/pr
     MatSidenavModule,
     MatFormFieldModule,
     FormsModule,
+    MatInputModule,
     AppRoutingModule
   ],
   providers: [],

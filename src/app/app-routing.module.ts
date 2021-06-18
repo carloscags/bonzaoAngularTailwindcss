@@ -9,13 +9,19 @@ import { ProductsComponent } from './components/products/products-read/products.
 import { ProductsCreateComponent } from './components/products/product-choice/products-create/products-create.component';
 import { ProductsDeleteComponent } from './components/products/product-choice/products-delete/products-delete.component';
 
+
+
 const routes: Routes = [
+
+
   { path: 'menu', component: HomeComponent },
   { path: 'produtos', component: ProductsComponent },
   { path: 'cadastre-se', component: RegisterComponent },
   { path: 'redes-sociais', component: SocialNetworkComponent },
   { path: 'criar-produtos', component: ProductsCreateComponent },
-  { path: 'deleta-produtos', component: ProductsDeleteComponent },
+  { path: 'deletar-produto/:id', component: ProductsDeleteComponent },
+  { path: 'users', loadChildren: () => import('./users/users.module').then(m => m.UsersModule) },
+
 
 ];
 

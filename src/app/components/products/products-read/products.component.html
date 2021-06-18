@@ -1,6 +1,6 @@
 <div>
-  <app-product-choice></app-product-choice>
   <div >
+    <app-product-choice></app-product-choice>
     <div class="container-card">
       <mat-card class="example-card" *ngFor="let row of products">
         <mat-card-header class="mb-2">
@@ -12,9 +12,9 @@
             <span>Preço</span>
             <span>{{ row.price | currency:"BRL" }}</span>
           </mat-card-content>
-            <mat-card-content>
-              <p>{{ row.description }}</p>
-            </mat-card-content>
+          <mat-card-content>
+            <p>{{ row.description }}</p>
+          </mat-card-content>
         </div>
         <mat-card-actions class="buttons-card">
           <button class="button-add-card">
@@ -26,6 +26,9 @@
             <i class="material-icons">
               share
             </i>
+          </button>
+          <button>
+            <app-product-choice [id] = "row.id"></app-product-choice>
           </button>
         </mat-card-actions>
       </mat-card>
