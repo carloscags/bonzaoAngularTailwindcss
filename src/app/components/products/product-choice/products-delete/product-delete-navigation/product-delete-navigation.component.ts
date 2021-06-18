@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-product-delete-navigation',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductDeleteNavigationComponent implements OnInit {
 
-  constructor() { }
 
-  ngOnInit() {
+  @Input() id: number | undefined;
+
+  constructor(
+    private router: Router,
+  ) { }
+
+  ngOnInit(): void {
+
   }
 
+  navDeleteProduct(): void {
+    this.router.navigate(['/deletar-produto', this.id]);
+  }
 }

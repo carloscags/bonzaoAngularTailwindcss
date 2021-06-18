@@ -1,14 +1,14 @@
-import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ProductService } from './../../../product.service';
+import { Product } from './../../../product.model';
+import { Component, OnInit } from '@angular/core';
 
-import { Product } from '../../product.model';
-import { ProductService } from './../../product.service';
 @Component({
-  selector: 'app-products-create',
-  templateUrl: './products-create.component.html',
-  styleUrls: ['./products-create.component.css']
+  selector: 'app-product-crud-create',
+  templateUrl: './product-crud-create.component.html',
+  styleUrls: ['./product-crud-create.component.css']
 })
-export class ProductsCreateComponent implements OnInit {
+export class ProductCrudCreateComponent implements OnInit {
 
   product: Product = {
     name: '',
