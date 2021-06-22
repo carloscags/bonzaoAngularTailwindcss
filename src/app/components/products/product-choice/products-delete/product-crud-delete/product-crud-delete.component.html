@@ -20,6 +20,15 @@
               disabled
           >
       </mat-form-field>
+      <mat-form-field>
+        <input
+            matInput
+            placeholder="Descrição"
+            [(ngModel)]="product.description"
+            name= "descripiton"
+            disabled
+            >
+    </mat-form-field>
   </form>
   <button mat-raised-button (click)="deleteProductPerId()" color="warn">
       Deletar

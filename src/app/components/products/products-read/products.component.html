@@ -1,6 +1,6 @@
 <div>
-  <div >
-    <app-product-choice></app-product-choice>
+  <div>
+    <app-product-create-navigation></app-product-create-navigation>
     <div class="container-card">
       <mat-card class="example-card" *ngFor="let row of products">
         <mat-card-header class="mb-2">
@@ -28,7 +28,9 @@
             </i>
           </button>
           <button>
-            <app-product-choice [id] = "row.id"></app-product-choice>
+            <app-product-delete-navigation
+              [id] = 'row.id'>
+            </app-product-delete-navigation>
           </button>
         </mat-card-actions>
       </mat-card>

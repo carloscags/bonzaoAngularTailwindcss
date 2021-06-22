@@ -6,10 +6,9 @@ import { RegisterComponent } from './components/register/register.component';
 import { SocialNetworkComponent } from './components/social-network/social-network.component';
 import { HomeComponent } from './views/home/home.component';
 import { ProductsComponent } from './components/products/products-read/products.component';
-import { ProductsCreateComponent } from './components/products/product-choice/products-create/products-create.component';
-import { ProductsDeleteComponent } from './components/products/product-choice/products-delete/products-delete.component';
-
-
+import { ProductCrudCreateComponent } from './components/products/product-choice/products-create/product-crud-create/product-crud-create.component';
+import { ProductCrudDeleteComponent } from './components/products/product-choice/products-delete/product-crud-delete/product-crud-delete.component';
+import { ProductImgUploadComponent } from './components/products/product-img/product-img-upload/product-img-upload.component';
 
 const routes: Routes = [
 
@@ -18,9 +17,12 @@ const routes: Routes = [
   { path: 'produtos', component: ProductsComponent },
   { path: 'cadastre-se', component: RegisterComponent },
   { path: 'redes-sociais', component: SocialNetworkComponent },
-  { path: 'criar-produtos', component: ProductsCreateComponent },
-  { path: 'deletar-produto/:id', component: ProductsDeleteComponent },
+  { path: 'criar-produtos', component: ProductCrudCreateComponent },
+  { path: 'deletar-produto/:id', component: ProductCrudDeleteComponent },
+  { path: 'upload-images', component: ProductImgUploadComponent },
   { path: 'users', loadChildren: () => import('./users/users.module').then(m => m.UsersModule) },
+  { path: 'products', loadChildren: () => import('./components/products/products.module').then(m => m.ProductsModule) },
+
 
 
 ];
