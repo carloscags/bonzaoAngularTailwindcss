@@ -1,0 +1,17 @@
+ul {
+  display: flex;
+
+
+}
+
+ul > li {
+  display: flex;
+  flex-direction: row;
+
+
+  margin: 1.2rem 6rem 1rem 2rem;
+
+  width: 80%;
+  justify-content: space-between;
+
+}

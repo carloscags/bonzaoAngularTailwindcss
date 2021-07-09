@@ -13,6 +13,10 @@ import { ProductCrudDeleteComponent } from './product-choice/products-delete/pro
 import { ProductCreateNavigationComponent } from './product-choice/products-create/product-create-navigation/product-create-navigation.component';
 import { ProductDeleteNavigationComponent } from './product-choice/products-delete/product-delete-navigation/product-delete-navigation.component';
 
+// icons imports
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
+
 // Image upload components
 import { ProductImgUploadComponent } from './product-img/product-img-upload/product-img-upload.component';
 import { ProductImgUploadNavComponent } from './product-img/product-img-upload-nav/product-img-upload-nav.component';
@@ -29,6 +33,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { FilesUploadDetailsComponent } from './product-img/files-upload-details/files-upload-details.component';
 
 
 @NgModule({
@@ -39,11 +44,13 @@ import { MatInputModule } from '@angular/material/input';
     ProductDeleteNavigationComponent,
     ProductCrudDeleteComponent,
     ProductImgUploadNavComponent,
-    ProductImgUploadComponent
+    ProductImgUploadComponent,
+    FilesUploadDetailsComponent
   ],
   imports: [
     CommonModule,
     BrowserModule,
+    FontAwesomeModule,
     FormsModule,
     MatToolbarModule,
     MatButtonModule,

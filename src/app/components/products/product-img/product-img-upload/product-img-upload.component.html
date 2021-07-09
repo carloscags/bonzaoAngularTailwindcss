@@ -1,40 +1,45 @@
 <div class="row">
   <div class="col-8">
     <label class="btn btn-default p-0">
-      <input type="file" (change)="selectFile($event)" />
+      <input type="file" accept="image/x-png,image/jpeg" (change)="selectFile($any($event))" />
     </label>
   </div>
 
   <div class="col-4">
-    <button class="btn btn-success btn-sm" [disabled]="!selectedFiles" (click)="upload()">
+    <button class="btn btn-success btn-sm" [disabled]="!currentFilesType.selectedFiles" (click)="upload()">
+      <fa-icon [icon]="uploadIcon"></fa-icon>
       Upload
     </button>
   </div>
 </div>
 
-<div *ngIf="currentFile" class="progress my-3">
+<div *ngIf="currentFilesType.currentFile" class="progress my-3">
   <div
     class="progress-bar progress-bar-info progress-bar-striped"
     role="progressbar"
-    attr.aria-valuenow="{{ progress }}"
+    attr.aria-valuenow="{{ currentFilesType.progress }}"
     aria-valuemin="0"
     aria-valuemax="100"
-    [ngStyle]="{ width: progress + '%' }"
+    [ngStyle]="{ width: currentFilesType.progress + '%' }"
   >
-    {{ progress }}%
+    {{ currentFilesType.progress }}%
   </div>
 </div>
 
-<div *ngIf="message" class="alert alert-secondary" role="alert">{{ message }}</div>
+<div *ngIf="currentFilesType.message" class="alert alert-secondary" role="alert">{{ currentFilesType.message }}</div>
 
 <div class="card mt-3">
   <div class="card-header">List of Files</div>
   <ul
-    class="list-group list-group-flush"
-    *ngFor="let file of fileInfos | async"
+    class=""
+    *ngFor="let file of currentFilesType.filesInfos | async"
   >
-    <li class="list-group-item">
+    <li class="">
       <a href="{{ file.url }}">{{ file.name }}</a>
+      <!-- <fa-icon [icon]="downloadIcon"></fa-icon> -->
+      <button (click) = "delete(file.url)">
+        <fa-icon [icon]="trashIcon"></fa-icon>
+      </button>
     </li>
   </ul>
 </div>
