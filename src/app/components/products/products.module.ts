@@ -33,7 +33,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { FilesUploadDetailsComponent } from './product-img/files-upload-details/files-upload-details.component';
+
 
 
 @NgModule({
@@ -45,7 +45,6 @@ import { FilesUploadDetailsComponent } from './product-img/files-upload-details/
     ProductCrudDeleteComponent,
     ProductImgUploadNavComponent,
     ProductImgUploadComponent,
-    FilesUploadDetailsComponent
   ],
   imports: [
     CommonModule,

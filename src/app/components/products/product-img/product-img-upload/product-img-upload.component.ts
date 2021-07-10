@@ -1,19 +1,19 @@
-import { ActivatedRoute, Router } from '@angular/router';
+
 import { FilesType } from './../files.model';
 import { Component, ErrorHandler, OnInit } from '@angular/core';
 import { UploadService } from '../../product-api/upload.service';
 
 
 // icons imports
-import { faKaaba, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { faUpload } from '@fortawesome/free-solid-svg-icons';
-import { faDownload } from '@fortawesome/free-solid-svg-icons';
+
 
 
 
 // http import
-import { HttpEventType, HttpResponse, HttpClient, HttpEvent, HttpErrorResponse } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpEventType, HttpResponse } from '@angular/common/http';
+
 import { tap } from 'rxjs/operators';
 
 @Component({
@@ -35,14 +35,12 @@ export class ProductImgUploadComponent implements OnInit {
   files: any;
 
   constructor(
-    private uploadService: UploadService,
-    private route: ActivatedRoute,
-    private router: Router) { }
+    private uploadService: UploadService) { }
 
   ngOnInit(): void {
-    this.currentFilesType.filesInfos = this.uploadService.getAllFiles().pipe(
-      tap((files) => this.files = files)); // request list files
-  }
+    // request list files
+    this.refreshFileListObservable();
+    }
 
   selectFile(event: any): void {
     this.currentFilesType.selectedFiles = event.target.files;
@@ -56,7 +54,7 @@ export class ProductImgUploadComponent implements OnInit {
       const pattern = /image-*/;
 
       if (!file.type.match(pattern)){
-        alert('invalid format');
+        this.uploadService.showMessage('Tipo de arquivo não aceito');
         return;
       }
       else{
@@ -69,7 +67,8 @@ export class ProductImgUploadComponent implements OnInit {
                 this.currentFilesType.progress = Math.round(100 * event.loaded / event.total);
               } else if (event instanceof HttpResponse) {
                 this.currentFilesType.message = event.body.message;
-                this.currentFilesType.filesInfos = this.uploadService.getAllFiles();
+                // this.currentFilesType.filesInfos = this.uploadService.getAllFiles();
+                this.refreshFileListObservable();
               }
             },
             (err: any) => {
@@ -95,7 +94,18 @@ export class ProductImgUploadComponent implements OnInit {
     const id = splitResult[splitResult.length - 1];
     this.uploadService.deleteFileById(id).subscribe(() => {
       this.uploadService.showMessage('Produto excluido com sucesso!');
+      this.refreshFileListObservable();
+
+    }, () => {
+      console.log('error');
+      this.refreshFileListObservable();
     });
+
+  }
+
+  refreshFileListObservable(): void {
+    this.currentFilesType.filesInfos = this.uploadService.getAllFiles().pipe(tap(files =>
+      this.files = files));
   }
 }
 

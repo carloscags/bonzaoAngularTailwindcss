@@ -1,7 +1,9 @@
 <div class="row">
   <div class="col-8">
+    <!-- <img src= {{}} class="h-10"> -->
+
     <label class="btn btn-default p-0">
-      <input type="file" accept="image/x-png,image/jpeg" (change)="selectFile($any($event))" />
+      <input type="file" accept="image/x-png,image/jpeg" multiple (change)="selectFile($any($event))" />
     </label>
   </div>
 

@@ -50,13 +50,13 @@ export class UploadService {
 
   deleteFileById(id: string): Observable<FilesType> {
     const url = `${this.baseUrl}/test/${id}`;
-    console.log(url);
     return this.http.delete<FilesType>(url).pipe(
       catchError(e => this.errorHandler(e))
     );
   }
   errorHandler(e: any): Observable<any> {
     this.showMessage('Ocorreu um error!');
+    console.log(e);
     return EMPTY;
   }
 }
